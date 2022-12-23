@@ -1,0 +1,23 @@
+#cloud-config
+autoinstall:
+  version: 1
+  locale: fr_FR
+  keyboard:
+    layout: fr
+    variant: fr
+  storage:
+    layout:
+      name: lvm
+  identity:
+    hostname: ubuntu-server
+    username: ubuntu
+    password: $6$rounds=4096$4ggdeTwxSspd$tV5HNix/DK2xx1uXvti9FsqQYj12rSCOgJ4yc/GWvM6DIi6OWL/Mx5JoQIPefaJAqCN4kJRsGGTGYN9KUJkYi.
+  ssh:
+    install-server: yes
+    allow-pw: yes
+    authorized-keys:
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDKRpbLFcSjykaHomqIMsSQGnLKTqYG6I8ei7MNj6WMJR0xHdwe2+WKZ/nJtdCc7+x6MgyaK+xpo5yd0L4FvnO7wLV7xHccE/JRKNGeXFXKfl0YpHAeoQePU2CuQk0B7UQT/QNpVXXJ8r8xqyO8iwddFrlSeAYMpirW+uxaQrXcXv9aROZ/xTZICJ92db9m3evci0kJyBhBcb5g8tk9tF7302f2QTMl552AtH0DPGBsWSzrmhI5Xl7Oh0iJvQnYtOv1xbGr2q+bt4XrGYbFmKQRSLCXOd5eM8k/WTcbc9d6+eLy5A/c+fsMdoRdC+P4ldmH5lECZFstoMZc7UTEVy7IZ3ngO667pLks6jC9Vy27F6lLCnZVGuOPajTlhhMlUJf3GOkbeT7LrrTew1xtSLXtX7V0u829SKu+sq/wOyNzgIZwL8x+UqV9K5aUSP7rN/kRZDFEW3kOqek4db6xZMRA6LqsnUa8UwYP/52oWcbLwo39DHcRB2elTZpRkpF5RpM= perrincl@DESKTOP-G09GR29
+  user-data:
+    disable_root: false
+  late-commands:
+    - echo 'ubuntu ALL=(ALL) NOPASSWD:ALL' > /target/etc/sudoers.d/ubuntu
